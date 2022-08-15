@@ -3,3 +3,63 @@
 @use './fonts/text' as text;
 @use './responsive/breakpoint' as break;
 @use './responsive/layout' as layout;
+
+body{
+    background-color: color.$lightBlue;
+    font-family: text.$family;
+    .container{
+        height: 100vh;
+        @include layout.gridCenter;
+        .card{
+            @include layout.gridCenter;
+            // place-items: unset;
+            grid-template-columns: 25rem 31rem;
+            .pic{
+                width: 25rem;
+                border-radius: 20px 0 0 20px;
+            }
+            .content{
+                border-radius: 0 20px 20px 0;
+                @include layout.flexCenter;
+                justify-content: space-around;
+                background-color: #fff;
+                height: 100%;
+                padding: 2rem;
+                display: flex;
+                flex-direction: column;
+                h1{
+                    font-size: 25px;
+                    font-weight: 700;
+                    color: color.$darkGrayBlue;
+                }
+                p{
+                    font-weight: 500;
+                    color: color.$darkBlue;
+                }
+                .info{
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    .avatar{
+                        width: 50px;
+                        border-radius: 50%;
+                    }
+                    .info_name{
+                        font-size: text.$size;
+                        margin-left: 20px;
+                    }
+                    .share{
+                        width: 2.5rem;
+                        background-color: color.$lightBlue;
+                        margin-left: auto;
+                        object-fit: scale-down;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        
+                    }
+                }
+            }
+        }
+    }
+}
