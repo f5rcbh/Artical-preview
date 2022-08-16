@@ -50,14 +50,51 @@ body{
                         margin-left: 20px;
                     }
                     .share{
-                        width: 2.5rem;
-                        background-color: color.$lightBlue;
+                        @include layout.flexCenter;
+                        flex-direction: column;
+                        position: relative;
+                        .active{
+                            display: none;
+                            align-items: center;
+                            justify-content: space-around;
+                            position: absolute;
+                            top: -5rem;
+                            width: 15rem;
+                            padding: 1rem 1rem ;
+                            border-radius: 10px;
+                            background-color: color.$darkGrayBlue;
+                            color: color.$darkBlue;
+                            text-transform: uppercase;
+                            letter-spacing: .3rem;
+                            &::after{
+                                position: absolute;
+                                content: '';
+                                width: 0;
+                                height: 0;
+                                inset: 0;
+                                top: 80%;
+                                left: 40%;
+                                border-left: 25px solid transparent;
+                                border-right: 25px solid transparent;
+                                border-top: 25px solid color.$darkGrayBlue;
+
+                            }
+                            img{
+                                cursor: pointer;
+                                margin: auto;
+                            }
+                        }
                         margin-left: auto;
-                        object-fit: scale-down;
-                        border-radius: 50%;
-                        cursor: pointer;
-                        
+                        .img_share{
+                            background-color: color.$lightBlue;
+                            padding: .5rem;
+                            border-radius: 150px;
+                            cursor: pointer;
+                            
+                        }
                     }
+                    
+                    
                 }
             }
         }
