@@ -8,33 +8,55 @@ body{
     background-color: color.$lightBlue;
     font-family: text.$family;
     .container{
-        height: 100vh;
+        min-height: 100vh;
         @include layout.gridCenter;
+        margin: auto;
         .card{
             @include layout.gridCenter;
-            // place-items: unset;
-            grid-template-columns: 25rem 31rem;
+            grid-template-columns: 20.5rem 26rem;
+            @include break.breakpoint(small){
+                @include layout.flexCenter;
+                flex-direction: column;
+                margin: 1rem;
+            }
             .pic{
-                width: 25rem;
+                width: 20.5rem;
                 border-radius: 20px 0 0 20px;
+                @include break.breakpoint(small){
+                    width: 20rem;
+                    border-radius: 20px 20px 0 0;
+                }
             }
             .content{
                 border-radius: 0 20px 20px 0;
                 @include layout.flexCenter;
-                justify-content: space-around;
-                background-color: #fff;
-                height: 100%;
-                padding: 2rem;
-                display: flex;
                 flex-direction: column;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                background-color: #fff;
+                padding: 2rem;
+                @include break.breakpoint(small){
+                    border-radius: 0 0 20px 20px;
+                    width: 20rem;
+                    padding: 1rem;
+                    
+                }
                 h1{
-                    font-size: 25px;
+                    @include break.breakpoint(small){
+                        font-size: 18px;
+                    }
+                    font-size: 19px;
                     font-weight: 700;
                     color: color.$darkGrayBlue;
                 }
                 p{
+                    @include break.breakpoint(small){
+                        font-size: 11px;
+                    }
+                    font-size: text.$size;
                     font-weight: 500;
                     color: color.$darkBlue;
+                    margin: 1rem 0;
                 }
                 .info{
                     display: inline-flex;
@@ -48,11 +70,18 @@ body{
                     .info_name{
                         font-size: text.$size;
                         margin-left: 20px;
+                        p{
+                            margin: 0
+                        }
                     }
                     .share{
                         @include layout.flexCenter;
                         flex-direction: column;
+                        margin-left: auto;
                         position: relative;
+                        @include break.breakpoint(small){
+                            z-index: 5;
+                        }
                         .active{
                             display: none;
                             align-items: center;
@@ -60,13 +89,33 @@ body{
                             position: absolute;
                             top: -5rem;
                             width: 15rem;
-                            padding: 1rem 1rem ;
+                            padding: 1rem  ;
                             border-radius: 10px;
                             background-color: color.$darkGrayBlue;
                             color: color.$darkBlue;
                             text-transform: uppercase;
                             letter-spacing: .3rem;
+                            font-size: text.$size;
+                            @include break.breakpoint(small){
+                                inset: 0;
+                                left: -17rem;
+                                top:-.8rem;
+                                width: 20rem;
+                                height: 4rem;
+                                z-index: -1;
+                                justify-content: unset;
+
+                                margin-right: auto;
+                                align-items: center;
+                                border-radius: 0 0 20px 20px;
+                                a{
+                                    margin: 0 1rem;
+                                }
+                            }
                             &::after{
+                                @include break.breakpoint(small){
+                                    display: none;
+                                }
                                 position: absolute;
                                 content: '';
                                 width: 0;
@@ -82,14 +131,17 @@ body{
                             img{
                                 cursor: pointer;
                                 margin: auto;
+
                             }
                         }
-                        margin-left: auto;
                         .img_share{
                             background-color: color.$lightBlue;
                             padding: .5rem;
-                            border-radius: 150px;
+                            border-radius: 50%;
                             cursor: pointer;
+                            @include break.breakpoint(small){
+                                margin-top: auto;
+                            }
                             
                         }
                     }
